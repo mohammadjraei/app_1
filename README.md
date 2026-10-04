@@ -21,7 +21,7 @@ A modern, minimal, and beautifully designed weather application built with Flutt
 - **API Client:** [Dio](https://pub.dev/packages/dio) (RESTful API integration with OpenWeatherMap)
 - **Routing:** [GoRouter](https://pub.dev/packages/gorouter)
 - **Local Storage:** [Hive](https://pub.dev/packages/hive)
-- **Animations:** [Rive](https://pub.dev/packages/rive)
+
 
 ---
 
