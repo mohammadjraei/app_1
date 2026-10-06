@@ -35,8 +35,6 @@ class _SearchCityPageState extends State<SearchCityPage> {
 
   String _lastSearchText = '';
 
-  // هر درخواست سرچ یک شناسه‌ی مخصوص خودش دارد.
-  // این کار جلوی برگشت نتیجه‌ی سرچ قدیمی و خراب کردن سرچ جدید را می‌گیرد.
   int _searchRequestId = 0;
 
   @override
