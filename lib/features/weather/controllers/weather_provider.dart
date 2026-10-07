@@ -337,7 +337,6 @@ class WeatherProvider extends ChangeNotifier with WidgetsBindingObserver {
 
     debugPrint('🌍 Timezone: ${weatherDetail.timezone}');
 
-    // Background بلافاصله با اطلاعات جدید API آپدیت می‌شود.
     _updateBackgroundImage(weatherDetail);
 
     await HiveService.saveWeather(weatherDetail);
@@ -381,7 +380,6 @@ class WeatherProvider extends ChangeNotifier with WidgetsBindingObserver {
       }
 
       final updatedWeather = weather.copyWith(
-        // city.name همان زبانی است که کاربر با آن شهر را جستجو کرده.
         cityName: city.name,
         cityNameFa: city.nameFa,
         cityNameEn: city.nameEn,
@@ -491,7 +489,6 @@ class WeatherProvider extends ChangeNotifier with WidgetsBindingObserver {
       }
 
       final updatedWeather = cityWeather.copyWith(
-        // نام انتخاب‌شده بر اساس زبان جستجو حفظ می‌شود.
         cityName: city.name,
         cityNameFa: city.nameFa,
         cityNameEn: city.nameEn,
