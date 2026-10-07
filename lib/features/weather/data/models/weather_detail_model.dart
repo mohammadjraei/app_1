@@ -532,16 +532,10 @@ class WeatherDetailModel {
 class CityGeoModel {
   final String name;
 
-  // نام فارسی شهر برای نمایش در رابط کاربری
   final String? nameFa;
 
-  // نام انگلیسی شهر برای نمایش / جستجو
   final String? nameEn;
 
-  // زبان استفاده‌شده توسط کاربر هنگام جستجوی شهر
-  //
-  // 'fa' = فارسی
-  // 'en' = انگلیسی
   final String? searchLanguage;
 
   final double lat;
