@@ -95,7 +95,7 @@ class WeatherDetailModel {
   /// Persian city name.
   ///
   /// Example:
-  /// تهران
+
   final String? cityNameFa;
 
   /// English city name.
