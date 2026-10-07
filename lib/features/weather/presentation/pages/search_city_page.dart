@@ -50,9 +50,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
   // ============================================================
 
   String _displayCityName(CityGeoModel city) {
-    // مهم:
-    // Repository مقدار city.name را بر اساس زبان سرچ تنظیم می‌کند.
-    // بنابراین اینجا اولویت با city.name است تا زبان جستجو حفظ شود.
+ 
     if (city.name.trim().isNotEmpty) {
       return city.name.trim();
     }
@@ -106,8 +104,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
 
   CityGeoModel _createDisplayCity(CityGeoModel city) {
     return CityGeoModel(
-      // مهم:
-      // city.name همان نامی است که بر اساس زبان سرچ انتخاب شده.
+   
       name: _displayCityName(city),
       nameFa: city.nameFa,
       nameEn: city.nameEn ?? city.name,
@@ -125,7 +122,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
   void _onSearchChanged(String value) {
     _debounceTimer?.cancel();
 
-    // هر تغییر ورودی، درخواست قبلی را منسوخ می‌کند.
+    
     _searchRequestId++;
 
     final query = value.trim();
@@ -155,7 +152,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
       return;
     }
 
-    // اگر این درخواست دیگر جدیدترین درخواست نیست، کاری نکن.
+   
     if (requestId != _searchRequestId) {
       return;
     }
@@ -174,7 +171,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
         return;
       }
 
-      // ممکن است در زمان دریافت پاسخ، کاربر سرچ جدیدی کرده باشد.
+      
       if (requestId != _searchRequestId) {
         return;
       }
@@ -231,9 +228,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
         city.lat,
         city.lon,
 
-        // در صفحه‌ی سرچ، اطلاعات مکان را همین CityGeoModel داریم.
-        // بنابراین نیازی نیست برای هر نتیجه دوباره Nominatim
-        // reverse geocoding شود.
+        
         reverseGeocode: false,
       );
 
@@ -241,7 +236,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
         return;
       }
 
-      // اگر سرچ جدید شروع شده، نتیجه‌ی این درخواست دیگر معتبر نیست.
+     
       if (requestId != _searchRequestId) {
         return;
       }
@@ -279,8 +274,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
   Future<void> _selectCity(CityGeoModel city) async {
     final provider = context.read<WeatherProvider>();
 
-    // city.name همین الان بر اساس زبان جستجو تنظیم شده.
-    // بنابراین همان زبان را به Provider منتقل می‌کنیم.
+    
     final displayCity = _createDisplayCity(city);
 
     final success = await provider.selectCity(displayCity);
@@ -752,7 +746,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
               return child;
             },
 
-            onReorder: (oldIndex, newIndex) async {
+            onReorderItem: (oldIndex, newIndex) async {
               if (newIndex > oldIndex) {
                 newIndex -= 1;
               }
