@@ -273,7 +273,6 @@ class WeatherProvider extends ChangeNotifier with WidgetsBindingObserver {
     _showLocationInitialError = false;
     _showLocationRefreshError = false;
 
-    // Background بلافاصله بعد از دریافت API جدید محاسبه می‌شود.
     _updateBackgroundImage(refreshedWeather);
 
     await HiveService.saveWeather(refreshedWeather);
